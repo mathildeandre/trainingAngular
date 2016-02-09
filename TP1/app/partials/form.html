@@ -13,7 +13,7 @@
                             <input class="form-control"
                                    placeholder="Project name (max 20 char)"
                                    type="text"
-                                   ng-model="project.nameProject"
+                                   ng-model="project.name"
                                    name="uName"
                                    ng-maxlength="20"
                                    required/>
@@ -38,7 +38,7 @@
                         </div>
                     </div>
 
-
+                    <!--
                     <div class="form-group">
                         <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
@@ -53,6 +53,7 @@
                                 E-mail pattern
                             </span>
                     </div>
+                    -->
 
                     <div class="form-group">
                         <div class="input-group">
@@ -73,7 +74,7 @@
                                         class="glyphicon glyphicon-euro"></span></span>
                             <input class="form-control"
                                    placeholder="Amount to reach (max 1000)"
-                                   ng-model="project.montant"
+                                   ng-model="project.goal"
                                    name="uMontant"
                                    type="number"
                                    min="0"

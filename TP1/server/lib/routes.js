@@ -18,7 +18,7 @@ module.exports = function(app) {
   app.get('/api/projects/:id', api.getProject);
   app.post('/api/projects', api.addProject);
   app.put('/api/projects/:id', api.updateProject);
-  app.del('/api/projects', api.removeProject);
+  app.del('/api/projects/:id', api.removeProject);
 
   app.post('/api/users', users.create);
   app.put('/api/users', users.changePassword);

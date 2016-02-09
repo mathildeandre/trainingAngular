@@ -53,7 +53,8 @@ angular.module("myServices")
 
     .constant('categoryProject', {
         web: "Web",
-        game: "Game",
-        design: "Design"
+        games: "Games",
+        design: "Design",
+        service: "Web et techno"
     });
 

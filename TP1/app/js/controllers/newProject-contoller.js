@@ -1,19 +1,23 @@
 angular.module("myContollers")
-    .controller("newProjectController", ['$scope', '$routeParams', 'projectFactory', 'categoryProject',
-        function ($scope, $routeParams, projectFactory, categoryProject) {
+    .controller("newProjectController", ['$scope', '$routeParams', 'projectRestFactory', 'categoryProject',
+        function ($scope, $routeParams, projectRestFactory, categoryProject) {
 
 
-            $scope.project = {
+            /*$scope.project = {
                 id: 2,
                 nameProject: "new project",
                 email: "mathilde@orange.fr",
                 description: "ceci est un descriptino",
                 montant: 1000
-            };
+            };*/
 
 
             $scope.addProject = function () {
-                projectFactory.addProject(angular.copy($scope.project));
+                projectRestFactory.createProject(angular.copy($scope.project)).then(
+                    function(){
+                    }
+                )
+                //projectFactory.addProject(angular.copy($scope.project));
                 //$scope.listProjects.push(angular.copy($scope.project));
                 //$scope.$emit('created');
             };
@@ -30,11 +34,10 @@ angular.module("myContollers")
                     { name: 'Chachou', age: 30 }
                 ];
 
-
-
-
-            if ($routeParams) {
-                $scope.project = projectFactory.getProjectById($routeParams.projectId);
+            if ($routeParams.projectId) {
+                projectRestFactory.getProjectById($routeParams.projectId).then(function(project){
+                    $scope.project = project;
+                })
             };
 
         }])

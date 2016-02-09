@@ -1,6 +1,12 @@
 angular.module("myContollers")
-    .controller("detailController", ['$scope', '$routeParams', 'projectFactory', function ($scope, $routeParams, projectFactory) {
+    .controller("detailController", ['$scope', '$routeParams', 'projectRestFactory', function ($scope, $routeParams, projectRestFactory) {
 
-        $scope.project = projectFactory.getProjectById($routeParams.projectId);
-
+        if ($routeParams) {
+            projectRestFactory.getProjectById($routeParams.projectId).then(
+                function (project) {
+                    console.log(project);
+                    $scope.project = project;
+                }
+            )
+        }
     }])
