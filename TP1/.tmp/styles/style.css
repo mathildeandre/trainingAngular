@@ -1,0 +1,11 @@
+
+
+
+.css-form input.ng-valid.ng-touched{
+    border:1px solid green;
+}
+
+.css-form input.ng-invalid.ng-touched{
+    border:1px solid red;
+}
+
