@@ -1,0 +1,46 @@
+<!doctype html>
+<html xmlns:ng="http://angularjs.org">
+<head>
+    <meta charset="utf-8">
+    <title>NG-CRW</title>
+    <meta name="description" content="">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Custom Theme CSS -->
+    <link href="css/grayscale.css" rel="stylesheet" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+
+    <!-- Fonts -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
+          type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+
+</head>
+<body id="page-top" style="" ng-app="myApp">
+
+<div ng-include="'navbar.html'"></div>
+
+<div class="container main" ng-view>
+
+</div>
+
+<!-- LIB -->
+<script src="lib/angular.js"></script>
+<script src="lib/angular-route.js"></script>
+<script src="app.js"></script>
+
+<!-- controllers -->
+<script src="js/controllers/controllers.js"></script>
+<script src="js/controllers/project-controller.js"></script>
+<script src="js/controllers/newProject-contoller.js"></script>
+<script src="js/controllers/detail-controller.js"></script>
+
+<!-- services -->
+<script src="js/services/service.js"></script>
+<script src="js/services/projects-service.js"></script>
+</body>
+</html>

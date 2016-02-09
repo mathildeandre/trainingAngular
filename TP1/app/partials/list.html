@@ -1,0 +1,42 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">My projects</h3>
+            </div>
+            <div class="panel-body main-panel">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Email</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                        <th>Donation</th>
+                        <th>Detail</th>
+                        <th>Edit</th>
+                    </tr>
+                    <tr ng-repeat="project in listProjects">
+                        <td><a  ng-click="display(project.nameProject)">{{project.nameProject}}</a></td>
+                        <td>{{project.category}}</td>
+                        <td>{{project.email}}</td>
+                        <td>{{project.description}}</td>
+                        <td>{{project.montant}}</td>
+                        <td><input placeholder="Donation (max 1000)"
+                                ng-model="project.donation"
+                                name="uDonation"
+                                type="number"
+                                min="0"
+                                max="1000" />
+                            <button ng-click="giveDonation(project)" ng-disabled="project.donation==undefined">Give</button></td>
+                        <td>
+                            <a href="#/detail/{{project.id}}" class="glyphicon glyphicon-th"></a></td>
+                        <td>
+                            <a href="#/newProject/{{project.id}}" class="glyphicon glyphicon-edit"></a></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
