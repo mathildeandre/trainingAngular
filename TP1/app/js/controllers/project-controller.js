@@ -1,10 +1,9 @@
 angular.module("myContollers")
     .controller("projectsCtrl", ['$scope', '$routeParams', 'projectRestFactory', function ($scope, $routeParams, projectRestFactory) {
 
-        /*
-         $scope.listProjects=[{id:3, nameProject:"Project 3", email:"pierre@mail.com", description:"Ceci est une description de mon projet", montant:700},
-         {id:4, nameProject:"Project 4", email:"pierre@mail.com", description: "Ceci est une description de mon projet", montant:400}];
-         */
+
+         $scope.project3={id:3, name:"Project 3", email:"pierre@mail.com", description:"Ceci est une description de mon projet", goal:700};
+
 
 
        function loadProject() {
@@ -21,6 +20,8 @@ angular.module("myContollers")
         };
 
 
+        $scope.reloadProject = loadProject;
+
         loadProject();
         /*
          $scope.$on('created', function(){
@@ -35,23 +36,7 @@ angular.module("myContollers")
          }
          */
 
-        $scope.giveDonation = function (project) {
 
-            projectRestFactory.getProjectById(project._id).then(function (projectReturned) {
-                    var montant = projectReturned.goal;
-                    if (project.donation < montant) {
-                        projectReturned.goal = montant - project.donation;
-                        projectRestFactory.updateProject(projectReturned);
-                        loadProject();
-                    }
-                    project.donation = undefined;
-                }
-            );
-        }
 
-        $scope.deleteProject = function(project){
-            projectRestFactory.deleteProject(project).then(function(){
-                loadProject();
-            })
-        }
+
     }])

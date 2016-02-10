@@ -4,7 +4,6 @@ angular.module("myContollers")
         if ($routeParams) {
             projectRestFactory.getProjectById($routeParams.projectId).then(
                 function (project) {
-                    console.log(project);
                     $scope.project = project;
                 }
             )

@@ -1,6 +1,6 @@
 angular
-    .module("myApp", ['myContollers', 'myServices', 'ngRoute'])
-    .config(['$routeProvider', function ($routeProvider) {
+    .module("myApp", ['myContollers', 'myServices','myDirectives', 'ngRoute'])
+    .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         $routeProvider.when('/projects/:projectName?', {
             templateUrl: 'partials/list.html',
             controller: 'projectsCtrl'
@@ -13,9 +13,13 @@ angular
                 templateUrl: 'partials/detail.html',
                 controller: 'detailController'
             })
+            .when('/welcome', {
+                templateUrl: 'partials/main.html',
+                controller: 'projectsCtrl'
+            })
             .otherwise({
-                redirectTo:'/projects'
+                redirectTo:'/welcome'
             });
 
-
+        $httpProvider.interceptors.push('$httpErrorInterceptor');
     }]);

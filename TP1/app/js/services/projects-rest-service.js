@@ -1,8 +1,7 @@
-
 angular.module("myServices")
-    .factory("projectRestFactory", function($http, $q){
+    .factory("projectRestFactory", function ($http, $q) {
 
-        return{
+        return {
             getProjects: getProjects,
             getProjectById: getProjectById,
             updateProject: updateProject,
@@ -10,73 +9,73 @@ angular.module("myServices")
             deleteProject: deleteProject
         };
 
-        function getProjects(){
+        function getProjects() {
             return $http({
                 method: 'GET',
                 url: '/api/projects'
             })
-                .then(function(response){
-
-                    if(response.status == 200){
+                .then(function (response) {
+                    if (response.status == 200) {
                         return response.data;
                     }
-
                     return $q.reject(response); //si HTTP pas de gestion d'erreur dans la version HTTP d'angular 1.3
                 })
         };
 
-        function getProjectById(idProject){
+        function getProjectById(idProject) {
             return $http({
                 method: 'GET',
-                url: '/api/projects/'+idProject
+                url: '/api/projects/' + idProject
             })
-                .then(function(response){
-                    if(response.status == 200){
+                .then(function (response) {
+                    if (response.status == 200) {
                         return response.data;
                     }
-                    return $q.reject(response);
+                    return $q.reject(response); //si HTTP pas de gestion d'erreur dans la version HTTP d'angular 1.3
                 })
         };
 
-        function updateProject(project){
+        function updateProject(project) {
             return $http({
                 method: 'PUT',
-                url: '/api/projects/'+project._id,
+                url: '/api/projects/' + project._id,
                 data: project
             })
-                .then(function(response){
-                    if(response.status == 200){
+                .then(function (response) {
+                    if (response.status == 200) {
                         return response.data;
                     }
                     return $q.reject(response);
                 })
         };
 
-        function createProject(project){
+        function createProject(project) {
             return $http({
                 method: 'POST',
                 url: '/api/projects/',
                 data: project
             })
-                .then(function(response){
-                    if(response.status == 200){
+                .then(function (response) {
+                    if (response.status == 200) {
                         return response.data;
                     }
                     return $q.reject(response);
                 })
         };
 
-        function deleteProject(project){
+        function deleteProject(project) {
             return $http({
                 method: 'DELETE',
-                url: '/api/projects/'+project._id,
+                url: '/api/projects/' + project._id,
             })
-                .then(function(response){
-                    if(response.status == 200){
+                .then(function (response) {
+                    if (response.status == 200) {
                         return response.data;
                     }
                     return $q.reject(response);
                 })
         }
+
+
 
     });

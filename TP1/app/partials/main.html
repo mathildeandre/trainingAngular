@@ -17,7 +17,7 @@
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
-                    <tr ng-repeat="project in listProjects | orderBy : 'date':true " card-directive project="project" on-update="reloadProject">
+                    <tr ng-repeat="project in listProjects | orderBy : 'date':true  |limitTo:5" card-directive project="project" on-update="reloadProject">
 
 
                     </tr>
