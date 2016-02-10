@@ -1,5 +1,5 @@
 angular
-    .module("myApp", ['myContollers', 'myServices','myDirectives', 'ngRoute'])
+    .module("myApp", ['myContollers', 'myServices','myDirectives', 'myFilters','ngRoute'])
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         $routeProvider.when('/projects/:projectName?', {
             templateUrl: 'partials/list.html',

@@ -3,13 +3,12 @@ angular.module("myDirectives")
 
         $scope.giveDonation = function (project) {
             projectRestFactory.getProjectById(project._id).then(function (projectReturned) {
-                    var montant = projectReturned.goal;
-                    console.log('Montant', montant);
-                    if (project.donation < montant) {
+                    if (project.donation > 0) {
                         console.log('Project', project);
-                        projectReturned.goal = montant - project.donation;
+
+                        projectReturned.gifts = projectReturned.gifts + project.donation;
                         projectRestFactory.updateProject(projectReturned);
-                        project.goal = montant - project.donation;
+                        project.gifts = project.gifts + project.donation;
                     }
                     project.donation = undefined;
                 }

@@ -1,4 +1,56 @@
+<div class="thumbnail">
+    <!-- <img src="http://placehold.it/320x150" alt=""> -->
+    <div class="caption card-caption">
 
+        <div class="pull-right-icon card-goal">
+            <a href="#/detail/{{project._id}}" class="glyphicon glyphicon-th"></a></td>
+        </div>
+
+        <div class="pull-right-icon card-goal">
+            <a href="#/newProject/{{project._id}}" class="glyphicon glyphicon-edit"></a></td>
+        </div>
+
+
+        <div class="pull-right-icon card-goal">
+            <a ng-click="deleteProject(project)" class="glyphicon glyphicon-minus"></a></td>
+        </div>
+        </br>
+
+        <h4 class="card-name"><a href="/#/detail/{{project._id}}">{{project.name}}</a>
+        </h4>
+
+        <h4 class="pull-right card-goal">{{project.goal | currency}}</h4>
+
+        <p>{{project.category}}</p>
+
+        <p class="card-date">Since {{project.date | date:'mediumDate'}}</p>
+
+        <p class="card-description">{{project.description}}</p>
+    </div>
+
+
+    <div>
+        Gifts : {{project.gifts}}
+    </div>
+    <div class="progress progress-striped card-progress">
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{project.gifts}}"
+             aria-valuemin="0" aria-valuemax="{{project.goal}}" style="width: {{project.gifts/project.goal*100}}%">
+            <span class="sr-only">{{project.gifts/project.goal*100}}% Complete</span>
+        </div>
+    </div>
+    <div class="card-gift">
+        <input placeholder="Donation (max 1000)"
+               ng-model="project.donation"
+               name="uDonation"
+               type="number"
+               min="0"
+               max="1000"/>
+        <button class="btn btn-primary" ng-click="giveDonation(project)" ng-disabled="project.donation==undefined">Make
+            a gift
+        </button>
+    </div>
+</div>
+<!--
 <td><a ng-click="display(project.name)">{{project.name}}</a></td>
 <td>{{project.category}}</td>
 <td>{{project.goal}}</td>
@@ -12,9 +64,35 @@
     <button ng-click="giveDonation(project)" ng-disabled="project.donation==undefined">Give
     </button>
 </td>
+
+<td class="discover-categories list-group">
+    <a class="list-group-item">All</a> <a class="list-group-item">Finished</a> <a class="list-group-item">To finish</a> </td> </div>
 <td>
     <a href="#/detail/{{project._id}}" class="glyphicon glyphicon-th"></a></td>
 <td>
     <a href="#/newProject/{{project._id}}" class="glyphicon glyphicon-edit"></a></td>
 <td>
     <a ng-click="deleteProject(project)" class="glyphicon glyphicon-minus"></a></td>
+
+
+
+<div class="thumbnail">
+    <img src="http://placehold.it/320x150" alt="">
+    <div class="caption card-caption">
+        <h4 class="pull-right card-goal">{{project.goal | currency}}</h4>
+        <h4 class="card-name"><a href="/#/project/{{project._id}}">{{project.name}}</a>
+        </h4>
+        <p>{{project.category}}</p>
+        <p class="card-date">Since {{project.date | date:'mediumDate'}}</p>
+        <p class="card-description">{{project.description}}</p>
+    </div>
+    <div class="progress progress-striped card-progress">
+        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="{{project.gifts}}" aria-valuemin="0" aria-valuemax="{{project.goal}}" style="width: {{project.gifts/project.goal*100}}%">
+            <span class="sr-only">{{project.gifts/project.goal*100}}% Complete</span>
+        </div>
+    </div>
+    <div class="card-gift">
+        <a class="btn btn-primary" href="/#/project/{{project._id}}">Make a gift</a>
+    </div>
+</div>
+-->
