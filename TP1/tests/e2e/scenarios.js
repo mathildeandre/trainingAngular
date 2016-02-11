@@ -9,14 +9,14 @@ describe('NG Crowfundind App', function() {
     browser.get('');
     
     browser.getLocationAbsUrl().then(function(url) {
-        expect(url).toBe('/main');
+        expect(url).toBe('/welcome');
       });
   });
 
   it('should display the main projects', function() {
 
-    var projectsList = element.all(by.repeater('project in projects'));
-    expect(projectsList.count()).toBe(4);
+    var projectsList = element.all(by.repeater('project in listProjects'));
+    expect(projectsList.count()).toBe(5);
 
   });
 
@@ -30,7 +30,7 @@ describe('NG Crowfundind App', function() {
 
     it('should display the projects list', function() {
 
-      var projectsList = element.all(by.repeater('project in filtered'));
+      var projectsList = element.all(by.repeater('project in listProjects'));
       console.log("Project count : "+projectsList.count());
       expect(projectsList.count()).toBeGreaterThan(9);
 
