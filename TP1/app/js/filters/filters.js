@@ -1,5 +1,5 @@
 angular.module("myFilters", [])
-    .filter('projectsProgression', function ($log) {
+    .filter('projectsProgression', function () {
         return function (list, displayProgression) {
             //$log.debug('Filtre', input)
 

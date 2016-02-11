@@ -18,8 +18,6 @@ angular.module("myContollers")
                     .then(function (projects) {
                         console.log(projects)
                         $scope.listProjects = projects;
-
-
                     }, function (error) {
                         alert(error);
                     });

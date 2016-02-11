@@ -1,21 +1,31 @@
 angular
-    .module("myApp", ['myContollers', 'myServices','myDirectives', 'myFilters','ngRoute'])
+    .module("myApp", [
+        'myContollers',
+        'myServices',
+        'myDirectives',
+        'myFilters',
+        'ngRoute'
+    ])
     .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
         $routeProvider.when('/projects/:projectName?', {
-            templateUrl: 'partials/list.html',
+            templateUrl: '../partials/list.html',
             controller: 'projectsCtrl'
         })
             .when('/newProject/:projectId?', {
-                templateUrl: 'partials/form.html',
+                templateUrl: '../partials/form.html',
                 controller: 'newProjectController'
             })
             .when('/detail/:projectId?', {
-                templateUrl: 'partials/detail.html',
+                templateUrl: '../partials/detail.html',
                 controller: 'detailController'
             })
             .when('/welcome', {
-                templateUrl: 'partials/main.html',
+                templateUrl: '../partials/main.html',
                 controller: 'projectsCtrl'
+            })
+            .when('/login', {
+                templateUrl: '../partials/login.html',
+                controller: 'loginController'
             })
             .otherwise({
                 redirectTo:'/welcome'
